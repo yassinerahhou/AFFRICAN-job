@@ -1,0 +1,105 @@
+{% extends "main.html" %}
+
+{% block body %}
+<br><br><br>
+{% if current_user.is_authenticated %}
+{% if current_user.is_admin %}
+<div class="container" style="width: 100%;">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-12">
+
+            <!-- Content to show for authenticated admin users -->
+            <div class="card">
+                <div class="card-header text-center bg-success text-white">
+                    <h3>ADMIN DASHBOARD</h3>
+                </div>
+
+                <!-- Admin dashboard content goes here -->
+                <div class="container mt-4">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="{{ url_for('static', filename='profile_pics/' + current_user.image_file) }}"
+                                    alt="Profile Image" class="img-fluid"
+                                    style="height: 200px; width: 200px; margin: 8% 0;border-radius: 30%;"
+                                    src="{{ image_file }}">
+
+                                <div class="card-body text-center">
+                                    <h2 class="card-title">{{ current_user.username }}</h2>
+                                    <p class="card-text text-secondary">{{ current_user.email }}</p>
+                                    <p class="card-text"><small class="text-muted">Member since 2023</small></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <form method="POST" action="" enctype="multipart/form-data">
+                                <fieldset class="form-group">
+                                    <legend class="border-bottom mb-4">Account Info</legend>
+                                    <div class="form-group">
+                                        <label class="form-control-label">Username</label>
+                                        <p>{{ current_user.username }}</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-control-label">Email</label>
+                                        <p>{{ current_user.email }}</p>
+                                    </div>
+
+                                </fieldset>
+                                <fieldset class="form-group">
+                                    <legend class="border-bottom mb-4">Additional Information</legend>
+                                    <!-- Add fields for additional user information -->
+                                    <!-- Example: -->
+                                    <!-- <div class="form-group">
+                                                <label class="form-control-label">Name</label>
+                                                <p>{{ current_user.name }}</p>
+                                            </div> -->
+                                    <!-- Add more fields as needed -->
+                                </fieldset>
+                                <div class="form-group">
+
+                                    <button type="submit" class="btn btn-outline-info">Update Account
+                                        Information</button>
+                                </div>
+                            </form>
+                            <hr>
+                            <h4>Password Change</h4>
+                            <form method="POST" action="{{ url_for('home') }}">
+                                <!-- Add fields for password change -->
+                            </form>
+                            <hr>
+                            <h4>Account Deletion</h4>
+                            <form method="POST" action="#">
+                                <!-- Add fields for account deletion -->
+                            </form>
+                            <!-- creat new post -->
+
+                            <div style="width: 100%;height: 300px;">
+                                <!-- <legend class="border-bottom mb-4">CREAT NEW POST</legend> -->
+                                <span>
+                                    <a href="{{ url_for('new_post') }}" id="signin__btn" class="btn btn-outline-info"
+                                        style="color: black; font-size: larger; margin: 7px; border-radius: 10%; background-color: aquamarine;">
+                                        CREATE NEW POST
+                                    </a>
+                                </span>
+
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <br><br><br><br> <br><br><br><br>
+</div>
+{% else %}
+<!-- Content to show for non-admin users -->
+<p class="text-danger">You do not have permission to access this page.</p>
+{% endif %}
+{% else %}
+<!-- Content to show for non-authenticated users -->
+<p class="text-danger">You need to log in to access this page.</p>
+{% endif %}
+<br><br><br>
+{% endblock body %}

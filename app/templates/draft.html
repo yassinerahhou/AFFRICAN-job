@@ -1,0 +1,561 @@
+<!-- hahya lpartie li katbyn articles fhome page : -->
+<section class="container" style="width: 95%;">
+    <br>
+    {% for post in posts %}
+    <article class="media content-section" style="display: flex; flex-direction: column;">
+
+        <img class="rounded-circle article-img"
+            src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">
+
+        <div class="media-body">
+            <div class="article-metadata">
+                <a class="mr-2" href="#">{{ post.author.username }}</a>
+                <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</small>
+            </div>
+            <h2><a class="article-title" href="{{url_for('post', post_id=post.id)}}">{{ post.title }}</a></h2>
+            <p class="article-content">{{ post.content }}</p>
+        </div>
+        {% endfor %}
+    </article>
+    <br><br><br>
+    <!-- end of 1  -->
+
+
+
+    <!-- creat post page.html -->
+
+    {% extends "main.html" %}
+    <br><br> <br>
+    {% block body %}
+    <br><br><br>
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header text-center bg-info text-white">
+                        <h3>Update Post</h3>
+                    </div>
+                    <div class="card-body">
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                        {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}" role="alert">
+                            {{ message }}
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+                        {% endwith %}
+
+                        <form method="POST" action="">
+                            {{ form.hidden_tag() }}
+                            <fieldset class="form-group">
+                                <legend class="border-bottom mb-4"> {{legend}}</legend>
+                                <div class="form-group">
+                                    {{ form.title.label(class="form-control-label") }}
+                                    {% if form.title.errors %}
+                                    {{ form.title(class="form-control form-control-lg is-invalid") }}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.title.errors %}
+                                        <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                    {% else %}
+                                    {{ form.title(class="form-control form-control-lg") }}
+                                    {% endif %}
+                                </div>
+                                <div class="form-group">
+                                    {{ form.content.label(class="form-control-label") }}
+                                    {% if form.content.errors %}
+                                    {{ form.content(class="form-control form-control-lg is-invalid") }}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.content.errors %}
+                                        <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                    {% else %}
+                                    {{ form.content(class="form-control form-control-lg") }}
+                                    {% endif %}
+                                </div>
+
+                            </fieldset>
+                            <div class="form-group">
+                                {{ form.submit(class="btn btn-outline-info btn-block") }}
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <br><br><br>
+    {% endblock body %}
+    <!-- end of creat post  -->
+
+
+    <!-- account page by calemero  -->
+    <br>
+    <!-- <h1> {{current_user.username }}</h1> -->
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed&family=Montserrat:wght@300;400;500;600&family=Noto+Sans+Arabic:wght@100&family=Roboto:wght@300&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="/static/profile.css">
+        <link rel="stylesheet" href="../static/styles/account.css">
+        <title>ACCOUNT</title>
+    </head>
+
+    <body>
+
+        <div class="empty_nav"></div>
+        <div class="user_page">
+            <div class="title_page" style="width: 100%;">
+                <!-- PLACE FOR USER NAME -->
+                <p>WELECOME BACK {{current_user.username }} 👋</p>
+            </div>
+            <div class="img_and_emailuser">
+                <div class="img_user">
+
+                    <img class="control_img" src="../static/image/profile_img.png">
+                    <div class="update_img">
+                        <!-- HERE FLASK METHOD TO UDATE IMG -->
+                        <button>UPDATE</button>
+                    </div>
+                </div>
+                <div class="info_email_user">
+                    <div class="username_flask">
+                        <p>USERNAME : {{current_user.username }}</p>
+                    </div>
+                    <div class="username_flask">
+                        <p>EMAIL : {{current_user.email }}</p>
+                    </div>
+                    <div class="username_flask">
+                        <p>STATU : JOBLESS</p>
+                    </div>
+                </div>
+            </div>
+            <div class="update_info">
+                <div class="title_for_update">
+                    <img src="/static/icon_setting.png">
+                    <p>UPDATE MY PROFILE</p>
+                </div>
+                <div class="update_deatils">
+                    <div class="update_username">
+                        <!-- ADD FLASK TO UPADTE USERNAME -->
+                        <p>USERNAME : {{current_user.username }} </p>
+                        <!-- ABOVE INPUT FOR USERNAME -->
+                        <button>UPDATE USERNAME</button>
+                    </div>
+                    <div class="update_email">
+                        <!-- FLASK HERE TO UPDATE EMAIL -->
+                        <p>EMAIL : {{current_user.email }}</p>
+                        <!-- ABOVE INPUT FOR EMAIL -->
+                        <button>UPDATE EMAIL</button>
+                    </div>
+                    <div class="update_password">
+                        <!-- FLASK HERE TO UPDATE PASSOWRD -->
+                        <p>PASSWORD : *****HAHA</p>
+                        <!-- ABOVE INPUT FOR PASSWORD -->
+                        <button>UPDATE PASSWORD</button>
+                    </div>
+                    <div class="update_statu">
+                        <!-- FLASK HERE TO UPDATE STATU -->
+                        <p>STATUS : JOBLESS </p>
+                        <!-- ABOVE INPUT FOR STATU -->
+                        <button>UPDATE STATU</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+
+        </footer>
+
+    </body>
+
+    </html>
+    <br><br><br>
+
+
+    <!-- end of account ipage  -->
+
+
+    <!-- acoount page  -->
+    {% extends "main.html" %}
+
+
+    {% block body %}
+    <div class="content-section">
+        <div class="media">
+            <img class="rounded-circle account-img" src="{{ image_file }}">
+            <div class="media-body">
+                <h2 class="account-heading">{{ current_user.username }}</h2>
+                <p class="text-secondary">{{ current_user.email }}</p>
+            </div>
+
+        </div>
+        <form method="POST" action="" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Account Info</legend>
+                <div class="form-group">
+                    {{ form.username.label(class="form-control-label") }}
+
+                    {% if form.username.errors %}
+                    {{ form.username(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.username.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form.username(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.email.label(class="form-control-label") }}
+                    {% if form.email.errors %}
+                    {{ form.email(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.email.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form.email(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.picture.label() }}
+                    {{ form.picture(class="form-control-file") }}
+                    {% if form.picture.errors %}
+                    {% for error in form.picture.errors %}
+                    <span class="text-danger">{{ error }}</span></br>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+
+        {% endblock body%}
+        <!-- end  -->
+
+
+
+        <!-- creat post befor editing : 12/14 -->
+        {% extends "main.html" %}
+        {% block body %}
+        <br><br>
+        <div class="container" style="width: 90%;">
+            <div class="row justify-content-center mt-5">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header text-center bg-info text-white">
+                            <h3>Create Post</h3>
+                        </div>
+                        <div class="card-body">
+                            {% with messages = get_flashed_messages(with_categories=true) %}
+                            {% if messages %}
+                            {% for category, message in messages %}
+                            <div class="alert alert-{{ category }}" role="alert">
+                                {{ message }}
+                            </div>
+                            {% endfor %}
+                            {% endif %}
+                            {% endwith %}
+
+                            <form method="POST" action="" enctype="multipart/form-data">
+                                {{ form.hidden_tag() }}
+                                <fieldset class="form-group">
+                                    <legend class="border-bottom mb-4">Post Details</legend>
+                                    <div class="form-group">
+                                        {{ form.title.label(class="form-control-label") }}
+                                        <div class="input-group">
+                                            {{ form.title(class="form-control form-control-lg", placeholder="Enter the
+                                            post
+                                            title") }}
+                                            <div class="invalid-feedback">
+                                                {% for error in form.title.errors %}
+                                                <span>{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            <div class="valid-feedback">
+                                                <i class="bi bi-check2"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form.content.label(class="form-control-label") }}
+                                        <div class="input-group">
+                                            {{ form.content(class="form-control form-control-lg", rows=5,
+                                            placeholder="Write
+                                            your post content here") }}
+                                            <div class="invalid-feedback">
+                                                {% for error in form.content.errors %}
+                                                <span>{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            <div class="valid-feedback">
+                                                <i class="bi bi-check2"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form.image.label(class="form-control-label") }}
+                                        <div class="input-group">
+                                            {{ form.image(class="form-control form-control-lg", accept="image/*") }}
+                                            <div class="invalid-feedback">
+                                                {% for error in form.image.errors %}
+                                                <span>{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            <div class="valid-feedback">
+                                                <i class="bi bi-check2"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <div class="form-group">
+                                    {{ form.submit(class="btn btn-outline-info btn-block") }}
+                                    <a href="{{ url_for('home') }}"
+                                        class="btn btn-outline-secondary btn-block">Cancel</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br><br>
+        {% endblock %}
+
+
+        <!-- End -->
+
+
+        <!-- populat posts -->
+        {% extends "main.html" %}
+
+        {%block head%}
+        <link rel="stylesheet" href="../static/styles/popular_articles.css">
+        <!-- poppins fonts 'MOST populat' -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="width=device-width, intial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        {%endblock head%}
+
+
+        {% block body %}
+
+        <!-- section d most popular -->
+        <section id="blog">
+            <div class="blog_heading">
+                <span> MOST POPULAR X </span>
+                <h3> MOST POPULAR ARTICLES </h3>
+            </div>
+
+            <!-- blog contonair -->
+            <div class="blog_container">
+                <!-- box 1 -->
+                <div class="blog_box">
+                    <!-- post image  -->
+                    <div class="blog_imag">
+                        <img src="../static/post_images/default.jpg">
+                    </div>
+                    <!-- text area  -->
+                    <div class="blog_text">
+                        <span> 12 Décembre 2023</span>
+                        <a href="#" class="blog_title">
+                            <h4> Lorem ipsum dolor sit amet consectetur adipisicing elit. </h4>
+                        </a>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis architecto, facere rem
+                            cumque
+                            quae inventore assumenda enim obcaecati, debitis dignissimos suscipit consectetur asperiores
+                            ut
+                            nostrum perspiciatis saepe beatae neque aperiam.</p>
+                        <a href="">READ MORE</a>
+
+                    </div>
+                </div>
+
+                <!-- post 2 -->
+                <div class="blog_box">
+                    <!-- post image  -->
+                    <div class="blog_imag">
+                        <img src="../static/post_images/default.jpg">
+                    </div>
+                    <!-- text area  -->
+                    <div class="blog_text">
+                        <span> 12 Décembre 2023</span>
+                        <a href="#" class="blog_title">
+                            <h4> Lorem ipsum dolor sit amet consectetur adipisicing elit. </h4>
+                        </a>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis architecto, facere rem
+                            cumque
+                            quae inventore assumenda enim obcaecati, debitis dignissimos suscipit consectetur asperiores
+                            ut
+                            nostrum perspiciatis saepe beatae neque aperiam.</p>
+                        <a href="">READ MORE</a>
+
+                    </div>
+                </div>
+                <!-- post3 -->
+                <div class="blog_box">
+                    <!-- post image  -->
+                    <div class="blog_imag">
+                        <img src="../static/post_images/default.jpg">
+                    </div>
+                    <!-- text area  -->
+                    <div class="blog_text">
+                        <span> 12 Décembre 2023</span>
+                        <a href="#" class="blog_title">
+                            <h4> Lorem ipsum dolor sit amet consectetur adipisicing elit. </h4>
+                        </a>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis architecto, facere rem
+                            cumque
+                            quae inventore assumenda enim obcaecati, debitis dignissimos suscipit consectetur asperiores
+                            ut
+                            nostrum perspiciatis saepe beatae neque aperiam.</p>
+                        <a href="">READ MORE</a>
+
+                    </div>
+                </div>
+                <!-- post 4 -->
+
+                <!-- post3 -->
+                <div class="blog_box">
+                    <!-- post image  -->
+                    <div class="blog_imag">
+                        <img src="../static/post_images/default.jpg">
+                    </div>
+                    <!-- text area  -->
+                    <div class="blog_text">
+                        <span> 12 Décembre 2023</span>
+                        <a href="#" class="blog_title">
+                            <h4> Lorem ipsum dolor sit amet consectetur adipisicing elit. </h4>
+                        </a>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis architecto, facere rem
+                            cumque
+                            quae inventore assumenda enim obcaecati, debitis dignissimos suscipit consectetur asperiores
+                            ut
+                            nostrum perspiciatis saepe beatae neque aperiam.</p>
+                        <a href="">READ MORE</a>
+
+                    </div>
+                </div>
+                <!-- post 5 -->
+                <!-- post3 -->
+                <div class="blog_box">
+                    <!-- post image  -->
+                    <div class="blog_imag">
+                        <img src="../static/post_images/default.jpg">
+                    </div>
+                    <!-- text area  -->
+                    <div class="blog_text">
+                        <span> 12 Décembre 2023</span>
+                        <a href="#" class="blog_title">
+                            <h4> Lorem ipsum dolor sit amet consectetur adipisicing elit. </h4>
+                        </a>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis architecto, facere rem
+                            cumque
+                            quae inventore assumenda enim obcaecati, debitis dignissimos suscipit consectetur asperiores
+                            ut
+                            nostrum perspiciatis saepe beatae neque aperiam.</p>
+                        <a href="">READ MORE</a>
+
+                    </div>
+                </div>
+                <!-- post6 -->
+                <!-- post3 -->
+                <div class="blog_box">
+                    <!-- post image  -->
+                    <div class="blog_imag">
+                        <img src="../static/post_images/default.jpg">
+                    </div>
+                    <!-- text area  -->
+                    <div class="blog_text">
+                        <span> 12 Décembre 2023</span>
+                        <a href="#" class="blog_title">
+                            <h4> Lorem ipsum dolor sit amet consectetur adipisicing elit. </h4>
+                        </a>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis architecto, facere rem
+                            cumque
+                            quae inventore assumenda enim obcaecati, debitis dignissimos suscipit consectetur asperiores
+                            ut
+                            nostrum perspiciatis saepe beatae neque aperiam.</p>
+                        <a href="">READ MORE</a>
+
+                    </div>
+                </div>
+                <!-- end of popular posts -->
+
+            </div>
+
+            <!-- post 2 -->
+
+        </section>
+        {% endblock body%}
+        <!-- end of pupular articles -->
+
+
+        <!-- category page -->
+
+
+        {% extends 'main.html' %}
+
+        {% block body %}
+        <br><br><br><br>
+        <div class="container mt-12" style="width: 95%;">
+            <h1 class="mb-4">{{ category.name }} Articles</h1>
+            <div class="row">
+                {% for article in articles %}
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        {% if article.image_file %}
+                        <img src="{{ url_for('static', filename='post_images/' + article.image_file) }}"
+                            class="card-img-top" alt="{{ article.title }}">
+                        {% else %}
+                        <!-- Add a default image or a placeholder image if no image is available -->
+                        <img src="{{ url_for('static', filename='post_images/default_image.jpg') }}"
+                            class="card-img-top" alt="Default Image">
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="{{ url_for('post', post_id=article.id) }}">
+                                    {{ article.title[:100] }}{% if article.title|length > 100 %}...{% endif %}
+                                </a>
+                            </h5>
+                            <p class="card-text">{{ article.content[:200] }}{% if article.content|length > 200 %}...{%
+                                endif %}
+                            </p>
+                            <a href="{{ url_for('post', post_id=article.id) }}" class="btn btn-primary">Read more</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+        </div>
+        <br><br><br><br>
+        {% endblock %}
+        <!-- part   2
+ -->
+
+        <!-- e,d of categorypage -->

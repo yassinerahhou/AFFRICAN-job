@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<link rel="stylesheet" href="../static/styles/home_page.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy6p8ANhB6d" crossorigin="anonymous">
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
+    integrity="sha384-gpQ9J7L7ETKwq8zyeG3r12AuPv39I/tWZxIiYVbQ8TzXn3tR4pG5qNg4FSh1AXx7"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy6p8ANhB6d" crossorigin="anonymous"></script>
+<!--  <link rel="stylesheet" href="../static/css/main.css">  hadi method classic ohadi li ltht
+    B jinja style !  -->
+<!-- <link rel="stylesheet" href="{{ url_for('static' , filename='styles/jinjatest.css')}}"> -->
+<!-- <link rel="stylesheet" href="{{ url_for('static' , filename='styles/register.css')}}"> -->
+<link rel="stylesheet" href="{{ url_for('static' , filename='styles/style.css')}}">
+
+<!-- lets call js white jinja style  -->
+<!-- <script src="{{ url_for('static' , filename='js/login.js') }}"></script> -->
+
+<!-- Css & bootstrap  -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+
+<!-- fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+<!-- calemiro head -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+<!-- omaima head  -->
+<link rel="stylesheet" href="{{url_for('static' , filename='styles/footer2.css')}}">
+<script src="https://kit.fontawesome.com/f9ef6662b1.js" crossorigin="anonymous"></script>
+<!-- head by YCN -->
+<link rel="stylesheet" href="{{ url_for('static' , filename='styles/login.css')}}">
+<!-- <script src="{{ url_for('static' , filename='js/login.js') }}"></script> -->
+<title>{{title}}</title>
+{% block head %} {% endblock %}
+
+
+</head>
+
+<body>
+    <header>
+        <nav class="nav_nav">
+            <div class="main_nav">
+                <div class="logo">
+
+                    <img src="../static/image/logo2.png" alt="">
+                </div>
+
+                <div class="element_nav">
+                    <ul class="nav-ul">
+                        <li><a href="{{ url_for('home')}}" id="nav_style_x"> HOME</a></li>
+
+                        <li><a href="{{ url_for('public_sctr')}}" id="nav_style_x"> Public sector</a></li>
+                        <li> <a href="{{ url_for('private_sctr')}}" id="nav_style_x"> Private sector </a> </li>
+                        <li><a href="{{ url_for('companies')}}" id="nav_style_x"> For Employers </a> </li>
+                        <li><a href="{{ url_for('conta')}}" id="nav_style_x"> For job Seekers </a> </li>
+
+                    </ul>
+                </div>
+
+                <div class="login">
+                    {% if current_user is defined and current_user.is_admin %}
+                    <a class="{{ url_for('account') }}" href="{{ url_for('admin_dashboard') }}" id="signin__btn"
+                        style="color: black; font-size: large; margin: 7px;">Admin</a>
+                    {% endif %}
+
+                    {% if current_user is defined and current_user.is_authenticated %}
+                    <a href="{{ url_for('account') }}" id="signin__btn"
+                        style="color: black; font-size: large; margin: 7px;">Account</a>
+                    <a href="{{ url_for('logout') }}">Logout</a>
+                    {% else %}
+                    <a href="{{ url_for('test_login_3') }}" id="signin__btn"
+                        style="color: black; font-size: large;">Login</a>
+                    <a href="{{ url_for('register_3') }}" id="register">Register</a>
+                    {% endif %}
+
+                </div>
+            </div>
+        </nav>
+
+        </div>
+    </header>
+
+
+    {% block complete_calemro %} {% endblock %}
+
+    {% block body %} {% endblock %}
+
+
+
+
+
+
+    <footer>
+        {% block footer %} {% endblock %}
+
+
+        {% block HOMPE_page_footer %} {% endblock %}
+        <div class="footer-part1">
+            <div class="footer-part1-item">
+                <p id="part1item">50+</p>
+                <br>
+
+                <p id="part1item1">Happy clients</p>
+                <br>
+                <p id="part1item2">text1</p>
+            </div>
+            <div class="footer-part1-item">
+                <p id="part1item">369</p>
+                <br>
+                <p id="part1item1">Projects completed</p>
+                <br>
+                <p id="part1item2">text2</p>
+            </div>
+            <div class="footer-part1-item">
+                <p id="part1item">500+</p>
+                <br>
+                <p id="part1item1">Hours</p>
+                <br>
+                <p id="part1item2">text3</p>
+            </div>
+            <div class="footer-part1-item">
+                <p id="part1item">24/7</p>
+                <br>
+                <p id="part1item1">Support</p>
+                <br>
+                <p id="part1item2">text4</p>
+            </div>
+        </div>
+
+
+        <!-- Part 2 -->
+        <div class="footer-part2">
+            <p id="part2item">Find the Perfect Candidate</p>
+            <p id="part2item1">Connect with top talent and hire the best candidates for your company.</p>
+            <button id="btn">Learn more </button>
+        </div>
+
+        <!-- Part 3 -->
+        <div class="footer-part3">
+            <p id="part3"><img src="../static/image/logo.png" alt="" style="height: 80px;width:250px"></p>
+            <!-- <center> <span class="footer_page"></span> </center> -->
+            <nav id="omaima_nav">
+                <a id="part3a" href="{{url_for('home')}}">Home</a>
+                <a id="part3a" href="{{url_for('about')}}">About</a>
+                <a id="part3a" href="{{url_for('features')}}">Features</a>
+                <a id="part3a" href="{{url_for('faq')}}">FAQ</a>
+                <a id="part3a" href="{{ url_for('contact')}}"> Contact</a>
+            </nav>
+
+            <div class="icon3">
+
+                <a id="a_omaima" href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a id="a_omaima" href="#"><i class="fa-brands fa-linkedin"></i></a>
+                <a id="a_omaima" href="#"><i class="fa-brands fa-x-twitter"></i></a>
+
+            </div>
+        </div>
+
+
+        <!-- Part 4 -->
+        <div class="footer-part4">
+            <p id="right">© 2023 African job, All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

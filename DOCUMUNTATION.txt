@@ -1,0 +1,145 @@
+# 12/06 :
+#     we ll set-up DATABASE :
+# pip install flask-sqlalchemy
+
+# python : >>> from app import db
+# >>> db.create_all() >>> from app import User, Post 
+# >>> User.query.all()
+# []
+# >>>
+***print all models models
+models = [cls for cls in dir() if isinstance(globals()[cls], type) and issubclass(globals()[cls], db.Model)]
+
+# Type the variable name to see the list of models
+models **
+how to make user admin
+# Import necessary modules and classes
+from app import db
+from app.models import User
+
+# Assuming you want to make the user with the username 'yassine' an admin
+user_to_make_admin = User.query.filter_by(username='yassine').first()
+
+# Check if the user exists
+if user_to_make_admin:
+    # Display the initial state
+    print(f"Initial state - is_admin: {user_to_make_admin.is_admin}")
+
+    # Set the is_admin attribute to True
+    user_to_make_admin.is_admin = True
+
+    # Display the updated state
+    print(f"Updated state - is_admin: {user_to_make_admin.is_admin}")
+
+    # Commit the changes to the database
+    db.session.commit()
+
+**
+add category manual
+category2 = Category(name='Category 2')
+
+db.session.add_all([category1, category2])
+db.session.commit()
+
+
+
+# scp -r C:\Users\hp\Desktop\dev\PROJECTS\africanhub\AJITKHDEM_V2 yassine@54.164.174.101:/home/code/yassine/projet_v2 
+scp -r C:\Users\hp\Desktop\dev\PROJECTS\africanhub\AJITKHDEM_V2 yassine@54.160.115.129:/home/yacin/current_version/
+
+# linx command :
+# sudo su
+#  apt update && apt upgrade
+
+# hostnamectl set-hostname flask-servur
+# hostname
+# vi /etc/hosts => under 127a add my servur ip + host (flask-servur)
+# step 2 : iwll add new user( to navigate safe)
+# adduser yourusername
+# adduser yacin
+
+# adduser yacin sudo ()
+# su - yacin
+#  sudo nano /etc/ssh/sshd_config => (permitrootloggin:no +PasswordAuthentication no )
+# sudo systemctl restart sshd
+
+# next step : set-up farewall
+# sudo apt install ufw
+# sudo ufw default allow outgoing
+# sudo ufw default deny incoming
+# sudo ufw allow ssh
+# sudo ufw allow 5000
+# sudo ufw enable
+
+# sudo ufw status
+# ### Step 3 #################################
+# put our web app in webservur
+#  pip freeze (in my local to se what iv installed)
+# scp to send projet to servur
+# sudo apt install python3-pip 
+
+# python3 -m venv (creat new venv) sudo apt install python3-venv
+
+# source venv/bin/activate (ctivate ven)
+# sudo touch /etc/config.json
+# sudo nano /etc/config.json
+# then copy secret key & sql alchmy uri emaol user& passls
+# 'min 41 madrthach)
+
+# '
+# export FLASK_APP=run.py
+# (venv) yacin@flask-servur:~/AJITKHDEM_V2$  flask run --host=0.0.0.0 
+
+# db ankhdmo bngnix / support lot of traffic & best performance
+
+# sudo apt install ngnix
+
+# pip install gunicorn (in virtual env)
+# sudo rm /etc/nginx/sites-enabled/default 
+{we ll allow ngnix to existshandle static files & gunicorn handle the rest}
+
+
+# sudo nano /etc/nginx/sites-enabled/AJITKHDEM_V2  => checki hada hhhservur{ 
+#         listen 80;
+#         server_name 54.160.115.129;
+#         location /static {
+#                 alias /home/yacin/AJITKHDEM_V2/app/static;
+#         }
+#         location / { 
+#                 proxy_pass http://localhost:8000;
+#                 include /etc/nginx/proxy_params;
+#                 proxy_redirect off;
+#         }
+# }
+# sto at 40
+# gunicorn -w 3 run:app # to run my app
+#  sudo apt install supervisor # to keep it running 24/24
+#  sudo nano /etc/supervisor/conf.d/AJITKHDEM_V2.conf  => directory=/home/yacin/AJITKHDEM_V2
+#                 commande=/home/yacin/AJITKHDEM_V2/venv/bin/gunicorn -w 3 run:app
+#                 user=yacin
+#                 autostart=true
+#                 autorestart=true
+#                 stopasgroupt=true
+#                 killasgroup=true
+#                 stderr_logfile=/var/log/AJITKHDEM_V2/AJITKHDEM_V2.err.log
+#                 stdout_logfile=/var/log/AJITKHDEM_V2/AJITKHDEM_V2.out.log
+
+
+
+# DAY 2 : 12/14
+# iwill add category to post foorm 
+
+
+# 12/21/2023 : {
+STEPS T FOLLOW TO ADD COMMENT SECTION :
+1 :  creat new model ( comments)
+2 : upsate post model class by using comment 
+3 : add route to handle add comment
+*Comment Form:
+
+
+4: add a form for users to submit new comments: in html page
+5  apply flask db migrate
+flask db upgrade commmmends to apply our change in database }
+
+scp -r C:\Users\hp\Desktop\dev\PROJECTS\africanhub\AJITKHDEM_V2\app yacin@54.160.115.129
+:/home/yacin/current_version/AJITKHDEM_V2/app/

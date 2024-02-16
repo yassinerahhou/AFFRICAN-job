@@ -1,0 +1,70 @@
+{% extends "main.html" %}
+
+{% block body %}
+<br><br><br>
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header text-center bg-info text-white">
+                    <h3>Features</h3>
+                </div>
+                <div class="card-body">
+                    <p>
+                        Explore the powerful features that make AfricanJobHub the go-to platform for job seekers and
+                        employers.
+                    </p>
+
+                    <div class="feature">
+                        <h4>1. Job Search and Discovery</h4>
+                        <p>
+                            Easily find and discover a wide range of job opportunities based on your preferences. Our
+                            advanced search and filtering options help you pinpoint the right opportunities for your
+                            career.
+                        </p>
+                    </div>
+
+                    <div class="feature">
+                        <h4>2. User-Friendly Interface</h4>
+                        <p>
+                            Enjoy a seamless and intuitive user experience with our user-friendly interface. Navigate
+                            through the platform effortlessly and access the information you need with ease.
+                        </p>
+                    </div>
+
+                    <div class="feature">
+                        <h4>3. Secure and Confidential</h4>
+                        <p>
+                            Trust in the security and confidentiality of your data. We prioritize the protection of your
+                            personal information, ensuring a secure environment for all users.
+                        </p>
+                    </div>
+
+                    <div class="feature">
+                        <h4>4. Job Posting for Employers</h4>
+                        <p>
+                            Employers can easily post job opportunities, reaching a vast pool of talented individuals.
+                            Manage your job listings and connect with potential candidates effortlessly.
+                        </p>
+                    </div>
+
+                    <div class="feature">
+                        <h4>5. Support and Assistance</h4>
+                        <p>
+                            Count on our dedicated support team for assistance. Whether you have questions about using
+                            the platform or need technical support, we're here to help you every step of the way.
+                        </p>
+                    </div>
+                </div>
+                <div class="card-footer text-muted text-center">
+                    <small>
+                        Ready to experience these features? <a href="{{ url_for('register_3') }}">Sign up</a> now and
+                        unlock your potential.
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br><br>
+{% endblock body %}

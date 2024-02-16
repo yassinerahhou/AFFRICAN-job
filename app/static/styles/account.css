@@ -1,0 +1,171 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: "Montserrat", sans-serif;
+    box-sizing: border-box;
+}
+
+empty_nav{
+    width: 100%;
+    height: 140px;
+    background-color: black;
+}
+
+.user_page{
+    width: 900px;
+    height: 700px;
+    margin: auto;
+    /* border: 1px solid black; */
+}
+/* title for the page */
+.title_page{
+    width: 240px;
+    /* border: 1px solid black; */
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    justify-content: center;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    height: 50px;
+    background: linear-gradient(to right, #33ccff 20%, #ffffff 96%);
+
+}
+
+.img_and_emailuser{
+    width: 100%;
+    height: 260px;
+    background: linear-gradient(to right, #33ccff 20%, #ffffff 96%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    /* border: 1px solid black; */
+}
+
+.img_user{
+    width: 200px;
+    height: 190px;
+    /* border: 1px solid white; */
+}
+
+.control_img{
+    width: 100%;
+    height: 100%;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    object-fit: cover;
+}
+
+.info_email_user{
+    width: 650px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: white;
+    border-radius: 5px;
+    height: 190px;
+    border: 1px solid white;
+}
+
+.username_flask{
+    width: 90%;
+    height: 50px;
+    font-weight: bold;
+    background: linear-gradient(to right, #33ccff 20%, #ffffff 96%);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 5px;
+    border-radius: 5px;
+    /* border: 1px solid black; */
+}
+
+.update_img{
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    /* border: 1px solid black; */
+}
+
+.update_info{
+    width: 100%;
+    height: 290px;
+    margin-top: 15px;
+    /* border: 1px solid red; */
+}
+
+.title_for_update{
+    width: 240px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    background: linear-gradient(to right, #33ccff 20%, #ffffff 96%);
+    /* border: 1px solid black; */
+}
+
+.title_for_update img{
+    margin-right: 10px;
+}
+
+.update_deatils{
+    width: 100%;
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border: 1px solid black;
+}
+
+.update_username{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 5px;
+    height: 50px;
+    border: 1px solid black;
+}
+
+.update_email{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 5px;
+    height: 50px;
+    border: 1px solid black;
+}
+
+.update_password{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 5px;
+    height: 50px;
+    border: 1px solid black;
+}
+
+.update_statu{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 5px;
+    height: 50px;
+    border: 1px solid black;
+}
+
+footer{
+    width: 100%;
+    height: 160px;
+    background-color: black;
+}

@@ -1,0 +1,62 @@
+{% extends "main.html" %}
+<br><br> <br>
+{% block body %}
+<br><br><br>
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header text-center bg-info text-white">
+                    <h3>REST PASSWORD</h3>
+                </div>
+                <div class="card-body">
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                    {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}" role="alert">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+
+                    <form method="POST" action="">
+                        {{ form.hidden_tag() }}
+                        <fieldset class="form-group">
+                            <legend class="border-bottom mb-4"> ENTER YOUR EMAIL</legend>
+                            <div class="form-group">
+                                {{ form.email.label(class="form-control-label") }}
+                                {% if form.email.errors %}
+                                {{ form.email(class="form-control form-control-lg is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.email.errors %}
+                                    <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                {{ form.email(class="form-control form-control-lg") }}
+                                {% endif %}
+                            </div>
+
+
+
+                        </fieldset>
+                        <div class="form-group">
+                            {{ form.submit(class="btn btn-outline-info btn-block") }}
+                        </div>
+
+
+                    </form>
+                </div>
+                <div class="card-footer text-muted text-center">
+                    <small>
+                        Need An Account? <a class="ml-2" href="{{ url_for('register_3') }}">Sign Up Now</a>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<br><br><br>
+{% endblock body %}

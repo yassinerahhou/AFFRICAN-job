@@ -1,0 +1,92 @@
+{% extends "main.html" %}
+
+{% block body %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <img class="card-img-top  mx-auto "
+                    style="height: 200px; width: 200px; margin: 8% 0;border-radius: 30%;" src="{{ image_file }}"
+                    alt="Profile Image">
+                <div class="card-body text-center">
+                    <h2 class="card-title">{{ current_user.username }}</h2>
+                    <p class="card-text text-secondary">{{ current_user.email }}</p>
+                    <p class="card-text"><small class="text-muted">Member since </small></p>
+                    <!-- sinc { { current_user . date_joined.strftime('%B
+                    %Y') }} -->
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <form method="POST" action="" enctype="multipart/form-data">
+                {{ form.hidden_tag() }}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Account Info</legend>
+                    <div class="form-group">
+                        {{ form.username.label(class="form-control-label") }}
+                        {% if form.username.errors %}
+                        {{ form.username(class="form-control is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.username.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.username(class="form-control") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.email.label(class="form-control-label") }}
+                        {% if form.email.errors %}
+                        {{ form.email(class="form-control is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.email(class="form-control") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.picture.label() }}
+                        {{ form.picture(class="form-control-file") }}
+                        {% if form.picture.errors %}
+                        <div class="invalid-feedback d-block">
+                            {% for error in form.picture.errors %}
+                            <span class="text-danger">{{ error }}</span></br>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+                </fieldset>
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Additional Information</legend>
+                    <!-- Add fields for additional user information -->
+                    <!-- Example: -->
+                    <!-- <div class="form-group">
+                        { { form.name.label(class="form-control-label") }}
+                        { { form.name(class="form-control") }}
+                    </div> -->
+                    <!-- Add more fields as needed -->
+                </fieldset>
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-outline-info") }}
+                </div>
+            </form>
+            <!-- Add sections for additional features like password change, account deletion, etc. -->
+            <!-- Example: -->
+            <hr>
+            <h4>Password Change</h4>
+            <form method="POST" action="{{ url_for('home') }}">
+                <!-- Add fields for password change -->
+            </form>
+            <hr>
+            <h4>Account Deletion</h4>
+            <form method="POST" action="#"> <!--{ { url_for('account_deletion') } } -->
+                <!-- Add fields for account deletion -->
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock body %}

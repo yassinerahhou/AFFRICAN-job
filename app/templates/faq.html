@@ -1,0 +1,69 @@
+{% extends "main.html" %}
+
+{% block body %}
+<br><br><br>
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header text-center bg-info text-white">
+                    <h3>Frequently Asked Questions</h3>
+                </div>
+                <div class="card-body">
+                    <p>
+                        Welcome to the AfricanJobHub FAQ section. Here are some common questions and answers to help you
+                        navigate our platform. If you have additional inquiries, feel free to <a
+                            href="{{ url_for('contact') }}">contact us</a>.
+                    </p>
+
+                    <dl class="faq-list">
+                        <!-- Question 1 -->
+                        <dt>Q: How do I create an account?</dt>
+                        <dd>
+                            A: Creating an account is easy. Simply go to the <a href="{{ url_for('register') }}">Sign
+                                Up</a> page
+                            and fill out the required information in the registration form.
+                        </dd>
+
+                        <!-- Question 2 -->
+                        <dt>Q: How can I reset my password?</dt>
+                        <dd>
+                            A: If you forget your password, you can use the "Forgot Password" link on the <a
+                                href="{{ url_for('register_3') }}">Sign In</a> page
+                            to reset your password. Follow the instructions sent to your registered email address.
+                        </dd>
+
+                        <!-- Question 3 -->
+                        <dt>Q: Can I update my profile information?</dt>
+                        <dd>
+                            A: Yes, you can update your profile information by logging into your account and navigating
+                            to the profile settings page.
+                        </dd>
+
+                        <!-- Question 4 -->
+                        <dt>Q: How do I search for jobs on AfricanJobHub?</dt>
+                        <dd>
+                            A: To search for jobs, use the search bar on the homepage or explore specific job
+                            categories. You can also set filters to refine your search results.
+                        </dd>
+
+                        <!-- Question 5 -->
+                        <dt>Q: What should I do if I encounter technical issues?</dt>
+                        <dd>
+                            A: If you experience technical issues, please <a href="{{ url_for('contact') }}">contact our
+                                support team</a> for assistance. Provide details about the problem you're facing for a
+                            quicker resolution.
+                        </dd>
+                    </dl>
+                </div>
+                <div class="card-footer text-muted text-center">
+                    <small>
+                        Need further assistance? <a href="{{ url_for('contact') }}">Contact us</a> for support.
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br><br>
+{% endblock body %}

@@ -1,0 +1,65 @@
+{% extends "main.html" %}
+
+{% block body %}
+<br><br><br>
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header text-center bg-info text-white">
+                    <h3>About AfricanJobHub</h3>
+                </div>
+                <div class="card-body">
+                    <p>
+                        Welcome to AfricanJobHub, your premier platform for connecting job seekers and employers across
+                        Africa.
+                        At AfricanJobHub, we are committed to bridging the gap between talent and opportunity.
+                        Our mission is to empower individuals and businesses by facilitating meaningful connections and
+                        fostering career growth.
+                    </p>
+
+                    <p>
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                        {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}" role="alert">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+                    </p>
+
+                    <h4>Our Values</h4>
+                    <ul>
+                        <li>Commitment to Excellence</li>
+                        <li>Integrity and Transparency</li>
+                        <li>Empowering Careers</li>
+                        <li>Building Strong Connections</li>
+                    </ul>
+
+                    <h4>Why Choose AfricanJobHub?</h4>
+                    <p>
+                        AfricanJobHub stands out as a trusted partner in your career journey. Here's why you should
+                        choose us:
+                    </p>
+                    <ul>
+                        <li>Extensive Job Opportunities</li>
+                        <li>User-Friendly Platform</li>
+                        <li>Dedicated Support Team</li>
+                        <li>Secure and Confidential</li>
+                    </ul>
+
+                </div>
+                <div class="card-footer text-muted text-center">
+                    <small>
+                        Ready to take the next step? Join us now and explore a world of opportunities.
+                        <a href="{{ url_for('register_3') }}">Sign up</a>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br><br>
+{% endblock body %}

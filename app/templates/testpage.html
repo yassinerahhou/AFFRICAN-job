@@ -1,0 +1,85 @@
+{% extends "main.html" %}
+
+{%block head%}
+<link rel="stylesheet" href="../static/styles/popular_articles.css">
+<!-- poppins fonts 'MOST populat' -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+<meta http-equiv="X-UA-Compatible" content="IE-edge">
+<meta name="viewport" content="width=device-width, intial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+{%endblock head%}
+
+
+{% block body %}
+
+<!-- section d most popular -->
+<section id="blog">
+    <div class="blog_heading">
+
+        <h3> Sponsored Annonce </h3>
+    </div>
+
+    <!-- blog contonair -->
+    <div class="blog_container">
+        <!-- box 1 -->
+        <div class="blog_box">
+            <!-- post image  -->
+            <div class="blog_imag">
+                <img src="../static/post_images/default.jpg">
+            </div>
+            <!-- text area  -->
+            <div class="blog_text">
+                <span> 12 Décembre 2023</span>
+                <a href="#" class="blog_title">
+                    <h4> Lorem ipsum dolor sit amet consectetur adipisicing elit. </h4>
+                </a>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis architecto, facere rem cumque
+                    quae inventore assumenda enim obcaecati, debitis dignissimos suscipit consectetur asperiores ut
+                    nostrum perspiciatis saepe beatae neque aperiam.</p>
+                <a href="">READ MORE</a>
+
+            </div>
+        </div>
+
+        <!-- post 2 -->
+        <div class="blog_box">
+            <!-- post image  -->
+            <div class="blog_imag">
+                <img src="../static/post_images/default.jpg">
+            </div>
+            <!-- text area  -->
+            <div class="blog_text">
+                <span> 12 Décembre 2023</span>
+                <a href="#" class="blog_title">
+                    <h4> Lorem ipsum dolor sit amet consectetur adipisicing elit. </h4>
+                </a>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis architecto, facere rem cumque
+                    quae inventore assumenda enim obcaecati, debitis dignissimos suscipit consectetur asperiores ut
+                    nostrum perspiciatis saepe beatae neque aperiam.</p>
+                <a href="">READ MORE</a>
+
+            </div>
+        </div>
+
+    </div>
+    <h1> test categories</h1>
+
+    <!-- Post.query.filter_by(category_id=category.id).all() -->
+    <h1 class="mb-3">Posts by {{ user.username }} ({{ posts.total }})</h1>
+
+</section>
+{% endblock body%}
+<!-- 
+Post.query.filter_by(category_id=category.id).all()
+@app.route('/user/<string:username>')
+def user_posts(username):
+    page = request.args.get('page', 1, type=int)
+    user = User.query.filter_by(username=username).first_or_404()
+    posts = Post.query.filter_by(author=user)\
+        .order_by(Post.date_posted.desc())\
+        .paginate(page=page, per_page=5)
+    return render_template('user_posts.html',  posts=posts, user=user)
+     -->

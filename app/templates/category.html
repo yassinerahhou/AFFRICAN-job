@@ -1,0 +1,38 @@
+{% extends 'main.html' %}
+
+{% block body %}
+<br><br><br><br>
+<div class="container mt-12" style="width: 95%;">
+    <h1 class="mb-4">{{ category.name }} Articles</h1>
+    <div class="row">
+        {% for article in articles %}
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                {% if article.image_file %}
+                <img src="{{ url_for('static', filename='post_images/' + article.image_file) }}" class="card-img-top"
+                    alt="{{ article.title }}">
+                {% else %}
+                <!-- Add a default image or a placeholder image if no image is available -->
+                <img src="{{ url_for('static', filename='post_images/default_image.jpg') }}" class="card-img-top"
+                    alt="Default Image">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="{{ url_for('post', post_id=article.id) }}">
+                            {{ article.title[:100] }}{% if article.title|length > 100 %}...{% endif %}
+                        </a>
+                    </h5>
+                    <p class="card-text">{{ article.content[:200] }}{% if article.content|length > 200 %}...{% endif %}
+                    </p>
+                    <a href="{{ url_for('post', post_id=article.id) }}" class="btn btn-primary">Read more</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+<br><br><br><br>
+{% endblock %}
+<!-- part   2
+ -->

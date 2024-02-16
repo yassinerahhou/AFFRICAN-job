@@ -1,0 +1,59 @@
+{%extends 'main.html' %}
+{% block body %}
+
+<section class="sign_page">
+
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form id="form_login" action="#">
+                <h1 id="sign_h11">Create Account</h1>
+                <div class="social-container">
+                    <a id="sign_a" href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a id="sign_a" href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a id="sign_a" href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span id="span_setting">or use your email for registration</span>
+                <input id="sign_input" type="text" placeholder="Name" />
+                <input id="sign_input" type="email" placeholder="Email" />
+                <input id="sign_input" type="password" placeholder="Password" />
+                <button id="button_sign">Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form id="form_login" action="#">
+                <h1 id="sign_h11">Sign in</h1>
+                <div class="social-container">
+                    <a id="sign_a" href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a id="sign_a" href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a id="sign_a" href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span id="span_setting">or use your account</span>
+                <input id="sign_input" type="email" placeholder="Email" />
+                <input id="sign_input" type="password" placeholder="Password" />
+                <a id="sign_a" href="#">Forgot your password?</a>
+                <button id="button_sign">Sign In</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1 id="sign_h11">Welcome Back!</h1>
+                    <p id="sign_pp">To keep connected with us please login with your personal info</p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1 id="sign_h11">Hello, Friend!</h1>
+                    <p id="sign_pp">Enter your personal details and start journey with us</p>
+                    <button id="signUp" class="ghost">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+
+    </footer>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/login.js') }}"></script>
+    <script src="../static/js/login.js"></script>
+</section>
+{% endblock %}

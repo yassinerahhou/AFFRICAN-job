@@ -1,0 +1,126 @@
+<!-- create_post.html -->
+
+{% extends "main.html" %}
+
+{% block body %}
+{% if current_user.is_admin %}
+<br><br>
+<div class="container" style="width: 90%;">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header text-center bg-info text-white">
+                    <h3>Create Post</h3>
+                </div>
+                <div class="card-body">
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                    {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}" role="alert">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+
+                    <form method="POST" action="" enctype="multipart/form-data">
+                        {{ form.hidden_tag() }}
+                        <fieldset class="form-group">
+                            <legend class="border-bottom mb-4">Post Details</legend>
+
+                            <div class="form-group">
+                                {{ form.title.label(class="form-control-label") }}
+                                <div class="input-group">
+                                    {{ form.title(class="form-control form-control-lg", placeholder="Enter the post
+                                    title") }}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.title.errors %}
+                                        <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="valid-feedback">
+                                        <i class="bi bi-check2"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                {{ form.content.label(class="form-control-label") }}
+                                <div class="input-group">
+                                    {{ form.content(class="form-control form-control-lg", rows=5, placeholder="Write
+                                    your post content here") }}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.content.errors %}
+                                        <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="valid-feedback">
+                                        <i class="bi bi-check2"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- category section -->
+                            <div class="form-group">
+                                {{ form.category.label(class="form-control-label") }}
+                                <div class="input-group">
+                                    {{ form.category(class="form-control form-control-lg") }}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.category.errors %}
+                                        <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="valid-feedback">
+                                        <i class="bi bi-check2"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                {{ form.new_category.label(class="form-control-label") }}
+                                <div class="input-group">
+                                    {{ form.new_category(class="form-control form-control-lg") }}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.new_category.errors %}
+                                        <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="valid-feedback">
+                                        <i class="bi bi-check2"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end of catgory section                             -->
+
+                            <div class="form-group">
+                                {{ form.image.label(class="form-control-label") }}
+                                <div class="input-group">
+                                    {{ form.image(class="form-control form-control-lg", accept="image/*") }}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.image.errors %}
+                                        <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="valid-feedback">
+                                        <i class="bi bi-check2"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <div class="form-group">
+                            {{ form.submit(class="btn btn-outline-info btn-block") }}
+                            <a href="{{ url_for('home') }}" class="btn btn-outline-secondary btn-block">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br><br>
+{% else %}
+<!-- Content to show for non-authenticated users -->
+
+<meta http-equiv="refresh" content="3;url={{ url_for('home') }}">
+{% endif %}
+{% endblock %}

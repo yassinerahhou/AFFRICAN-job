@@ -1,0 +1,419 @@
+{%extends 'main.html' %}
+{% block complete_calemro %}
+<div class="title_div">
+    <h1>Find Your Dream Job With Us!</h1>
+    <p class="short_title">Post and Discover Job Opportunities</p>
+    <div class="btns_header">
+        <button class="header_btn">DISCOVER NEW POSTS!</button>
+        <button class="header_btn">READ MORE ABOUT US</button>
+    </div>
+</div>
+
+{% endblock %}
+{% block head %}
+<!-- set up popular articles & sponsored articles -->
+<link rel="stylesheet" href="../static/styles/popular_articles.css">
+<!-- poppins fonts 'MOST populat' -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+<meta http-equiv="X-UA-Compatible" content="IE-edge">
+<meta name="viewport" content="width=device-width, intial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+{%endblock head %}
+
+
+{% block body %}
+
+
+
+
+<!-- Our articles (fromdb ) -->
+
+<!-- end of articles  -->
+
+<!-- test re-srtyle -->
+<section class="container-fluid mt-4" style="font-family: poppins;">
+    <div class="row">
+        <div class="col-md-8">
+            <!-- sponsored annonce  -->
+            <section id="blog">
+                <div class="blog_heading">
+
+                    <h3> Sponsored Annonce </h3>
+                </div>
+
+                <!-- blog contonair -->
+                <div class="blog_container">
+                    <!-- box 1 -->
+                    <div class="blog_box">
+                        <!-- post image  -->
+                        <div class="blog_imag">
+                            <img src="../static/sponsres_articles/1job-offer.jpg">
+                        </div>
+                        <!-- text area  -->
+                        <div class="blog_text">
+                            <span> 12 Décembre 2023</span>
+                            <a href="{{ url_for('show_post', post_id=24)}}" class="blog_title">
+                                <h4>UEMF recrute des Techniciens Courant Faible </h4>
+                            </a>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis architecto, facere
+                                rem cumque
+                                quae inventore assumenda enim obcaecati, debitis dignissimos suscipit consectetur
+                                asperiores ut
+                                nostrum perspiciatis saepe beatae neque aperiam.</p>
+                            <a href="{{ url_for('show_post', post_id=24)}}">READ MORE</a>
+
+                        </div>
+                    </div>
+
+                    <!-- post 2 -->
+                    <div class="blog_box">
+                        <!-- post image  -->
+                        <div class="blog_imag">
+                            <img src="../static/sponsres_articles/2.jpg">
+                        </div>
+                        <!-- text area  -->
+                        <div class="blog_text">
+                            <span> 12 Décembre 2023</span>
+                            <a href="{{ url_for('show_post', post_id=23)}}" class="blog_title">
+                                <h4> Deva Pharmaceutique recrute des Délégués Médicaux sur Plusieurs Villes.
+                            </a>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis architecto, facere
+                                rem cumque
+                                quae inventore assumenda enim obcaecati, debitis dignissimos suscipit consectetur
+                                asperiores ut
+                                nostrum perspiciatis saepe beatae neque aperiam.</p>
+                            <a href="{{ url_for('show_post', post_id=23)}}">READ MORE</a>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <!-- post 2 -->
+
+            </section>
+            <!-- end of sponsored annonce -->
+            <!-- popular_articles -->
+            <!-- section d most popular -->
+            <section id="blog">
+                <div class="blog_heading">
+
+                    <h3> MOST POPULAR ARTICLES </h3>
+                </div>
+
+                <!-- blog contonair -->
+                <div class="blog_container">
+                    <!-- box 1 -->
+                    <div class="blog_box">
+                        <!-- post image  -->
+                        <div class="blog_imag">
+                            <img src="../static/sponsres_articles/3.jpg">
+                        </div>
+                        <!-- text area  -->
+                        <div class="blog_text">
+                            <span> 12 Décembre 2023</span>
+                            <a href="{{ url_for('show_post', post_id=24)}}" class="blog_title">
+                                <h4> Lorem ipsum dolor sit amet consectetur adipisicing elit. </h4>
+                            </a>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis architecto, facere
+                                rem cumque
+                                quae inventore assumenda enim obcaecati, debitis dignissimos suscipit consectetur
+                                asperiores ut
+                                nostrum perspiciatis saepe beatae neque aperiam.</p>
+                            <a href="">READ MORE</a>
+
+                        </div>
+                    </div>
+
+                    <!-- post 2 -->
+                    <div class="blog_box">
+                        <!-- post image  -->
+                        <div class="blog_imag">
+                            <img src="../static/sponsres_articles/4.jpg">
+                        </div>
+                        <!-- text area  -->
+                        <div class="blog_text">
+                            <span> 12 Décembre 2023</span>
+                            <a href="{{ url_for('show_post', post_id=24)}}" class="blog_title">
+                                <h4> Lorem ipsum dolor sit amet consectetur adipisicing elit. </h4>
+                            </a>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis architecto, facere
+                                rem cumque
+                                quae inventore assumenda enim obcaecati, debitis dignissimos suscipit consectetur
+                                asperiores ut
+                                nostrum perspiciatis saepe beatae neque aperiam.</p>
+                            <a href="{{ url_for('show_post', post_id=24)}}">READ MORE</a>
+
+                        </div>
+                    </div>
+                    <!-- post3 -->
+                    <div class="blog_box">
+                        <!-- post image  -->
+                        <div class="blog_imag">
+                            <img src="../static/sponsres_articles/1job-offer.jpg">
+                        </div>
+                        <!-- text area  -->
+                        <div class="blog_text">
+                            <span> 12 Décembre 2023</span>
+                            <a href="{{ url_for('show_post', post_id=24)}}" class="blog_title">
+                                <h4> Lorem ipsum dolor sit amet consectetur adipisicing elit. </h4>
+                            </a>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis architecto, facere
+                                rem cumque
+                                quae inventore assumenda enim obcaecati, debitis dignissimos suscipit consectetur
+                                asperiores ut
+                                nostrum perspiciatis saepe beatae neque aperiam.</p>
+                            <a href="{{ url_for('show_post', post_id=24)}}">READ MORE</a>
+
+                        </div>
+                    </div>
+                    <!-- post 4 -->
+
+                    <!-- post3 -->
+                    <div class="blog_box">
+                        <!-- post image  -->
+                        <div class="blog_imag">
+                            <img src="../static/sponsres_articles/2.jpg">
+                        </div>
+                        <!-- text area  -->
+                        <div class="blog_text">
+                            <span> 12 Décembre 2023</span>
+                            <a href="{{ url_for('show_post', post_id=24)}}" class="blog_title">
+                                <h4> Lorem ipsum dolor sit amet consectetur adipisicing elit. </h4>
+                            </a>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis architecto, facere
+                                rem cumque
+                                quae inventore assumenda enim obcaecati, debitis dignissimos suscipit consectetur
+                                asperiores ut
+                                nostrum perspiciatis saepe beatae neque aperiam.</p>
+                            <a href="{{ url_for('show_post', post_id=24)}}">READ MORE</a>
+
+                        </div>
+                    </div>
+                    <!-- post 5 -->
+
+
+                    <!-- end of popular posts -->
+
+                </div>
+
+                <!-- post 2 -->
+
+            </section>
+            <!-- end of popular aricles -->
+
+            <!-- Secture public Articles -->
+            <!-- Section to show 4 articles in each category -->
+            <a class="mr-2" href="{{ url_for('private_sctr') }}">
+
+            </a>
+
+
+
+
+            <!-- end of Secture public Articles -->
+            <!--  -->
+            <div class="text-center">
+                <h1>Most Recent Articles</h1>
+            </div>
+            <div class="row" style="width: 150%; ">
+                {% for post in posts %}
+                <div class="col-md-8 offset-md-2 mb-4">
+                    <div class="card">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                                {% if post.image_file %}
+                                <img class="card-img-top"
+                                    src="{{ url_for('static', filename='post_images/' + post.image_file) }}"
+                                    alt="Post Image" style="width: 100%; height: 100%; object-fit: cover;">
+                                {% else %}
+                                <img class="card-img-top" src="{{ url_for('static', filename='default_image.jpg') }}"
+                                    alt="Default Image" style="width: 100%; height: 100%; object-fit: cover;">
+                                {% endif %}
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <div class="media">
+                                        <div class="media-body pl-3">
+                                            <div class="article-metadata">
+                                                <a class="mr-2"
+                                                    href="{{ url_for('user_posts', username=post.author.username) }}">
+                                                    {{ post.author.username }}
+                                                </a>
+                                                <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d')
+                                                    }}</small>
+                                                <small>
+                                                    {% for category in post.categories %}
+                                                    <a class="mr-2"
+                                                        href="{{ url_for('category', category_id=category.id) }}">
+                                                        {{ category.name }}
+                                                    </a>
+                                                    {% endfor %}
+                                                </small>
+                                            </div>
+                                            <h2 class="card-title">
+                                                <a class="article-title" href="{{ url_for('post', post_id=post.id) }}">
+                                                    {{ post.title }}
+                                                </a>
+                                            </h2>
+                                            <p class="card-text" style="font-family: poppins;">{{ post.content[:200]
+                                                }}...</p>
+                                            <a href="{{ url_for('post', post_id=post.id) }}"
+                                                class="btn btn-primary">Read
+                                                more</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="text-center">
+                <!-- pagination part ... -->
+            </div>
+        </div>
+        <div class="col-md-4">
+            <section class="side_bar">
+
+
+
+                <h1>Premieum Offers</h1>
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                                <img class="card-img-top" src="../static/post_images/edd44cbba2602600.jpeg"
+                                    alt="Post Image" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div class="col-md-8">
+                                <h5 class="card-title" style="padding: 0 0 0 5%;"> Offer title</h5>
+                                <p class="card-text" style="padding: 0 0 0 5%;">Lorem ipsum dolor sit amet, consectetur
+                                    adipiscing elit...</p>
+                                <small class="text-muted" style="padding: 0 0 0 5%;">January 1, 2023</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                                <img class="card-img-top" src="../static/post_images/edd44cbba2602600.jpeg"
+                                    alt="Post Image" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div class="col-md-8">
+                                <h5 class="card-title" style="padding: 0 0 0 5%;"> offer title</h5>
+                                <p class="card-text" style="padding: 0 0 0 5%;">Lorem ipsum dolor sit amet, consectetur
+                                    adipiscing elit...</p>
+                                <small class="text-muted" style="padding: 0 0 0 5%;">January 2, 2023</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add more similar card elements for additional posts if needed -->
+
+            </section>
+        </div>
+    </div>
+    <center>
+        <!-- pagination part  -->
+        {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+        {% if page_num %}
+        {% if posts.page == page_num %}
+        <a class="btn btn-info mb-4" href="{{ url_for('home', page=page_num) }}">{{ page_num }}</a>
+        {% else %}
+        <a class="btn btn-outline-info mb-4" href="{{ url_for('home', page=page_num) }}">{{ page_num }}</a>
+        {% endif %}
+        {% else %}
+        ...
+        {% endif %}
+        {% endfor %}
+    </center>
+</section>
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+<!-- end test  -->
+<!-- anapec  -->
+<!-- <br><br>
+<div class="body_container">
+
+    <div class="title_post_section">
+        <h1>LES OFFERS </h1>
+    </div>
+
+    <div class="posts_section">
+        <div class="post">
+            <div class="img_post">
+                <img class="img_post_zone" src="../static/image/post_img.webp">
+            </div>
+            <div class="text_post">
+                <div class="info_title_company">ENTERPRISE</div>
+                <div class="info_title">Lorem ipsum dolor sit amet</div>
+                <div class="info_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non volutpat
+                    turpis. Mauris luctus rutrum mi ut rhoncus. Integer in dignissim tortor. Lorem ipsum dolor sit
+                    amet, consectetur adipiscing ...<span class="read_more"><u>Read More</u></span></div>
+                <div class="info_poster">by Jon Doe 5 hours ago</div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<!-- FIND PERFECT CONDIDATE  -->
+
+
+<section class="condidate_perfect">
+    <div class="FIND_CONDITATE">
+        <h4 id="feat_h5">FEATURES</h4>
+        <h1 id="find_x">FIND THE PERFECT CONDIDATE</h1>
+        <p id="last_x">Discover the features that make our professional website the ideal platforme for posting job
+            offers
+        </p>
+
+    </div>
+    <div class="four_condidate">
+        <div class="ef_4">
+            <h1 id="h1_ef4"> <i class="fa-regular fa-user fa-"></i>
+                Wide Range of Job Categories</h1>
+            <p id="p1_ef4"> Simple and intul to quickly post job offers</p>
+        </div>
+
+
+        <div class="ef_4">
+            <h1 id="h1_ef4"> <i class="fa-regular fa-user fa-"></i> Easy Job Posting</h1>
+            <p id="p1_ef4"> Post job offers in various indtries</p>
+        </div>
+        <div class="ef_4">
+            <h1 id="h1_ef4"> <i class="fa-regular fa-user fa-"></i> Advanced Search Filters</h1>
+            <p id="p1_ef4"> Simple aSimple and intul to quickly post job offersnd intul to quickly post job offers
+            </p>
+        </div>
+        <div class="ef_4">
+            <h1 id="h1_ef4"> <i class="fa-regular fa-user fa-"></i> Candidate Managment</h1>
+            <p id="p1_ef4"> Simple and intul to quickly post job offersSimple and intul to quickly post job offers
+            </p>
+        </div>
+
+    </div>
+
+
+</section>
+
+{% endblock %}
