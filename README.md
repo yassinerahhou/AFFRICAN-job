@@ -1,5 +1,5 @@
 by Calimero && YASSINE && ZAKARIA
-# AJITKHDEM_V2
+# AFRICAN-job
 import sqlite3
 
 # Connect to the source database
